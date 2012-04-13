@@ -1,9 +1,11 @@
-<%= form_for @question, :url => { :action => "create" } do |f| %>
+<%= form_for @question do |f| %>
   <%= render 'layouts/error_messages', :object => f.object %>
   <div class="field">
-    <%= f.text_area :content %>
+    <%= f.text_field :content, :class => "round question_input" %>
+    <%= f.hidden_field :replied_to, :value => "false" %>
+    <%= f.hidden_field :archive_id, :value => @archive_id %>
   </div>
   <div class="actions">
-    <%= f.submit "Submit" %>
+    <%= f.submit "Submit", :class => "round button" %>
   </div>
 <% end %>

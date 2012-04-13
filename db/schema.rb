@@ -19,13 +19,17 @@ ActiveRecord::Schema.define(:version => 20120413160259) do
     t.datetime "updated_at", :null => false
   end
 
+  add_index "archives", ["complete"], :name => "index_archives_on_complete"
+
   create_table "questions", :force => true do |t|
     t.string   "content"
     t.boolean  "replied_to"
+    t.integer  "archive_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
+  add_index "questions", ["archive_id"], :name => "index_questions_on_archive_id"
   add_index "questions", ["replied_to"], :name => "index_questions_on_replied_to"
 
 end

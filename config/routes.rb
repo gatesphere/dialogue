@@ -1,7 +1,6 @@
 Dialogue::Application.routes.draw do
-  get "question/create"
-
-  get "archives/create"
+  resources :questions, :only => :create
+  resources :archives
 
   match '/contact', :to => 'pages#contact'
   match '/about',   :to => 'pages#about'

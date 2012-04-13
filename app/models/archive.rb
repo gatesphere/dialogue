@@ -1,21 +1,23 @@
 class Archive < ActiveRecord::Base
   attr_accessible :complete
   
-  validates :complete, :presence => true
-  
-  has_many :questions
+  has_many :questions, :dependent => :destroy
   
   def root_question
-    this.questions.first
+    self.questions.first
   end
   
   def last_question
-    this.questions.last
+    self.questions.last
   end
   
   def self.incomplete_archive
-    archives = Archive.find_by_complete(false)
-    archives[rand(archives.length)]
+    archives = Archive.where(:complete => false)
+    if archives
+      archives[rand(archives.length)]
+    else
+      Archive.all[rand(Archive.count)]
+    end
   end
   
   def self.complete_archives

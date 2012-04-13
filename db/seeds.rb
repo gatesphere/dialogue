@@ -5,3 +5,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+archive = Archive.create({complete: false})
+q = archive.questions.build({content: "How do you feel right now?", replied_to: false})
+q.save
