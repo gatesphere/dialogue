@@ -1,6 +1,7 @@
 class PagesController < ApplicationController
   def home
     @title = "home"
+    @question = Question.new
   end
 
   def about

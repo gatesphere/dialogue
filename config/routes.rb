@@ -1,4 +1,8 @@
 Dialogue::Application.routes.draw do
+  get "question/create"
+
+  get "archives/create"
+
   match '/contact', :to => 'pages#contact'
   match '/about',   :to => 'pages#about'
   match '/help',    :to => 'pages#help'

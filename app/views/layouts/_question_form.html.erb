@@ -1,0 +1,9 @@
+<%= form_for @question, :url => { :action => "create" } do |f| %>
+  <%= render 'layouts/error_messages', :object => f.object %>
+  <div class="field">
+    <%= f.text_area :content %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Submit" %>
+  </div>
+<% end %>
