@@ -1,0 +1,6 @@
+== dialogue, a Socratic experiment
+Jacob M. Peck, 2012
+
+BSD License, I guess.
+
+Watch this space for more info.
